@@ -2,7 +2,7 @@
   <main class="bg">
     <div class="container">
       <div class="todo-app">
-        <h2>To-Do List <img src="./assets/icon.png"></h2>
+        <h1>To-Do List <img src="./assets/icon.png"></h1>
         <div class="row">
           <input type="text" v-model="newTask" placeholder="Apa yang ingin anda kerjakan ?">
           <button @click="addTask">Tambah</button>
@@ -105,20 +105,20 @@
   
   .todo-app {
     width: 100%;
-    max-width: 540px;
-    background: #b2c9fad5;
-    margin: 100px auto 20px;
-    padding: 40px 30px 70px;
-    border-radius: 10px;
+    max-width: 900px;
+    background-image: linear-gradient(to bottom, rgba(138, 125, 255, 0.61), rgb(0, 132, 255), rgba(0, 0, 255, 0));
+    margin: 50px auto 20px;
+    padding: 40px 40px 70px;
+    border-radius: 5px;
   }
-  .todo-app h2{
+  .todo-app h1{
+    text-align: center;
     color: #000000;
-    display: flex;
     align-items: center;
     margin-bottom: 40px;
   }
-  .todo-app h2 img{
-    width: 30px;
+  .todo-app h1 img{
+    width: 50px;
     margin-left: 10px;
   }
   
@@ -137,6 +137,7 @@
     outline: none;
     background: transparent;
     padding: 10px;
+    font-size: 20px;
     font-weight: 14px;
     color: #000000;
   }
@@ -150,6 +151,10 @@
     font-size: 16px;
     cursor: pointer;
     border-radius: 20px;
+  }
+
+  .row button:hover{
+    background: #6083eb;
   }
   
   ul li {
@@ -176,7 +181,7 @@
   }
   
   ul li.checked {
-    color: #7e7e7e;
+    color: rgb(221, 221, 221);
     text-decoration: line-through;
   }
   
@@ -202,14 +207,15 @@
   }
   
   .filters{
-    position: relative;
-    padding-top: 3vh;
-    left: 10rem;
+  display: flex;
+  justify-content: center;
+  padding-top: 3vh;
     
   }
   
   .filters button{
-    margin-left: 20px;
+    align-items: center;
+    justify-content: center;
   }
   
   
@@ -221,10 +227,10 @@
     color: #ffffff;
     cursor: pointer;
     display: inline-block;
-    font-weight: 600;
-    font-size: 18px;
+    font-weight: 200;
+    font-size: 14px;
     padding: 0 18px;
-    line-height: 50px;
+    line-height: 30px;
     text-align: center;
     text-decoration: none;
     user-select: none;
@@ -249,6 +255,8 @@
   }
   
   .reminder h4{
+    display: flex;
+    justify-content: center;
     color: #1a1a1a;
     position: relative;
     width: 100%;
