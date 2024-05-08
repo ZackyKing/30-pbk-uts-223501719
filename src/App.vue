@@ -13,9 +13,11 @@
           </button>
         </div>
         <ul>
-          <li v-for="(task, index) in filteredTodos" :key="task.id" :class="{ checked: task.checked }" @click="toggleTask(task)">
-            {{ task.text }}
+          <li v-for="(task, index) in filteredTodos" :key="task.id" :class="{ checked: task.checked, editing: task.editing }" @click="toggleTask(task)">
+            <div v-if="!task.editing">{{ task.text }}</div>
+            <input v-else type="text" v-model="task.text" @blur="finishEditing(task)" @keyup.enter="finishEditing(task)">
             <span @click.stop="removeTask(task)">&#xd7;</span>
+            <span @click.stop="startEditing(task)">✎</span>
           </li>
         </ul>
         <div class="reminder">
