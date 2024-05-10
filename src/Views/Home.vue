@@ -291,7 +291,7 @@
     width: 40px;
     height: 40px;
     font-size: 16px;
-    color: #ff0000;
+    color: #1aff00;
     line-height: 40px;
     text-align: center;
     border-radius: 50%;
