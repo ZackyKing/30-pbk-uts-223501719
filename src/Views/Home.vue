@@ -230,7 +230,6 @@
   }
   
   /* List styles */
-  /* List styles */
   ul li {
     list-style: none;
     font-size: 20px;
@@ -274,14 +273,14 @@
     width: 40px;
     height: 40px;
     font-size: 22px;
-    color: #555;
+    color: #ff0000;
     line-height: 40px;
     text-align: center;
     border-radius: 50%;
   }
   
   .removebutton:hover {
-    background: #edeef0;
+    background: #81aaf18d;
   }
   
   /* Edit button styles */
@@ -292,12 +291,15 @@
     width: 40px;
     height: 40px;
     font-size: 16px;
-    color: #555;
+    color: #ff0000;
     line-height: 40px;
     text-align: center;
     border-radius: 50%;
   }
   
+  .editbutton:hover {
+    background: #81aaf18d;
+  }
   /* Filter styles */
   .filters{
     display: flex;
