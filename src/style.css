@@ -5,7 +5,10 @@
   font-weight: 500;
   
   color: rgb(255, 255, 255);
-  background-color: #242424;
+  background-image:url("./assets/background.jpg");
+  background-position: center;
+  background-repeat: repeat-y;
+  background-size: cover;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
