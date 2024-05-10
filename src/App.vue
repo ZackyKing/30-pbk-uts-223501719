@@ -2,22 +2,25 @@
   <div id="app">
     <router-view></router-view>
   </div>
-
+  <audio autoplay loop>
+      <source src="../assets/bgm.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
 </template>
-
+  
 <script setup>
-import { RouterView } from 'vue-router'
-import { ref } from 'vue';
+  import { RouterView } from 'vue-router'
+  import { ref, computed } from 'vue';
+  const muted = ref(false);
 
-const bgMusic = ref(null);
-const muted = ref(false);
-
-function toggleMute() {
+  function toggleMute() {
   muted.value = !muted.value;
-  bgMusic.value.muted = muted.value;
-}
+  const audio = $refs.bgMusic;
+  audio.muted = muted.value;
+  }
 </script>
-
+  
+  
 <style>
 #app {
   -webkit-font-smoothing: antialiased;
