@@ -3,9 +3,9 @@
     <router-view></router-view>
   </div>
   <audio id="bgm" autoplay loop>
-      <source src="../assets/bgm.mp3" type="audio/mp3">
+      <source src="./assets/bgm.mp3" type="audio/mp3">
       Your browser does not support the audio element.
-    </audio>
+  </audio>
 </template>
   
 <script setup>
