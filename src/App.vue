@@ -6,14 +6,6 @@
   
 <script setup>
   import { RouterView } from 'vue-router'
-  import { ref, computed } from 'vue';
-  const muted = ref(false);
-
-  function toggleMute() {
-  muted.value = !muted.value;
-  const audio = $refs.bgMusic;
-  audio.muted = muted.value;
-  }
 </script>
   
   
