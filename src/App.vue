@@ -2,10 +2,7 @@
   <div id="app">
     <router-view></router-view>
   </div>
-  <audio autoplay loop ref="bgMusic">
-    <source src="../assets/bgm.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
+
 </template>
 
 <script setup>
