@@ -1,23 +1,21 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <router-view />
   </div>
-  <audio id="bgm" autoplay loop>
-      <source src="./assets/bgm.mp3" type="audio/mp3">
-      Your browser does not support the audio element.
-  </audio>
 </template>
-  
+
 <script setup>
-  import { RouterView } from 'vue-router'
+import { RouterView } from 'vue-router';
+import { onMounted } from 'vue';
+import { useRouter } from 'vue-router';
+
+onMounted(() => {
+  const router = useRouter();
+  console.log(router);
+});
+
 </script>
-  
-  
+
 <style>
-#app {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  margin-top: 60px;
-}
+/* Add your styles here */
 </style>
