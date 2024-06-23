@@ -7,12 +7,12 @@
         <option v-for="user in users" :value="user.id" :key="user.id">{{ user.name }}</option>
       </select>
 
-      <div v-if="isLoadingPosts">
+      <div v-if="isLoading">
         <span class="loading-message">Loading posts...</span>
       </div>
 
-      <ul v-if="!isLoadingPosts">
-        <li v-for="post in posts" :key="post.id" class="post-item">
+      <ul v-if="!isLoading">
+        <li v-for="post in filteredPosts" :key="post.id" class="post-item">
           <div class="post-container">
             <h3>{{ post.title }}</h3>
             <p>{{ post.body }}</p>
@@ -24,22 +24,25 @@
 </template>
 
 <script setup>
-import { ref, watch } from 'vue';
-import { useUserStore } from '../stores/useUserStore';
-import { usePostStore } from '../stores/usePostStore';
+import { ref, computed } from 'vue';
+import { useCombinedStore } from '../stores/usePostStore.js';
 
-const userStore = useUserStore();
-const postStore = usePostStore();
+const combinedStore = useCombinedStore();
 
 const selectedUser = ref(null);
 const selectedUserName = ref('');
 
-const { users, isLoading: isLoadingUsers, fetchUsers } = userStore;
-const { posts, isLoading: isLoadingPosts, fetchPosts } = postStore;
+const { users, posts, isLoading, fetchUsersAndPosts } = combinedStore;
+
+const filteredPosts = computed(() => {
+  if (selectedUser.value) {
+    return posts.filter(post => post.userId === selectedUser.value);
+  }
+  return posts;
+});
 
 const onUserChange = () => {
   if (selectedUser.value) {
-    fetchPosts(selectedUser.value);
     const selectedUserObject = users.find(user => user.id === selectedUser.value);
     selectedUserName.value = selectedUserObject ? selectedUserObject.name : '';
   } else {
@@ -47,13 +50,7 @@ const onUserChange = () => {
   }
 };
 
-watch(selectedUser, () => {
-  if (selectedUser.value) {
-    fetchPosts(selectedUser.value);
-  }
-});
-
-fetchUsers();
+fetchUsersAndPosts();
 </script>
 
 <style scoped>
